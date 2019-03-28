@@ -5,8 +5,8 @@ mongoose.Promise = global.Promise;
 const reserveSchema = new mongoose.Schema({
   restaurantId: Number,
   tableId: Number,
-  date: timestamp,
-  time: timestamp,
+  date: Date,
+  time: Date,
   chairs: Number,
   reserved: {type: Boolean, default: false}
 });
