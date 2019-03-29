@@ -7,7 +7,9 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "rest:setup": "node database/seedRestaurant.js"
+  },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
