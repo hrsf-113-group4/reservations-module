@@ -3,14 +3,16 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const reserveSchema = new mongoose.Schema({
-  restaurantId: Number,
-  tableId: Number,
+  restaurant: {
+    $ref: 'restaurants',
+    $id: 
+  },
   date: Date,
   time: Date,
   chairs: Number,
   reserved: {type: Boolean, default: false}
 });
 
-const Reserve = mongoose.model('Reserve', reserveSchema);
+const Reservation = mongoose.model('Reserve', reserveSchema);
 
-module.exports = Reserve;
+module.exports = Reservation;
