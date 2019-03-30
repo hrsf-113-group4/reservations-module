@@ -8,12 +8,15 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "rest:setup": "node database/seedRestaurant.js"
+    "rest:setup": "node database/seedRestaurant.js",
+    "reserve:setup": "node database/seedReserve.js",
+    "server": "nodemon server/server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10",
     "react": "^16.8.5",
     "react-dom": "^16.8.5"
   },

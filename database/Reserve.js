@@ -3,7 +3,7 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const reserveSchema = new mongoose.Schema({
-  _id: new mongoose.Types.ObjectId(),
+  _id: mongoose.Schema.Types.ObjectId,
   restaurant: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Restaurant'

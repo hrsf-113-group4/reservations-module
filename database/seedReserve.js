@@ -2,6 +2,7 @@ const faker = require('faker');
 const db = require('./index.js');
 const Restaurants = require('./Restaurant.js');
 const Reservations = require('./Reserve.js');
+const mongoose = require('mongoose');
 
 var reserveMatrix = function() {    
   var times = 20;
@@ -32,21 +33,21 @@ var timeKey = {
   2: '2:30 pm',
   3: '2:45 pm',
   4: '3:00 pm',
-  6: '3:30 pm',
-  7: '3:45 pm',
-  8: '4:00 pm',
-  9: '4:15 pm',
-  10: '4:30 pm',
-  11: '4:45 pm',
-  12: '5:00 pm',
-  13: '5:15 pm',
-  14: '5:30 pm',
-  15: '5:45 pm',
-  16: '6:00 pm',
-  17: '6:15 pm',
-  18: '6:30 pm',
-  19: '6:45 pm',
-  20: '7:00 pm'
+  5: '3:30 pm',
+  6: '3:45 pm',
+  7: '4:00 pm',
+  8: '4:15 pm',
+  9: '4:30 pm',
+  10: '4:45 pm',
+  11: '5:00 pm',
+  12: '5:15 pm',
+  13: '5:30 pm',
+  14: '5:45 pm',
+  15: '6:00 pm',
+  16: '6:15 pm',
+  17: '6:30 pm',
+  18: '6:45 pm',
+  19: '7:00 pm'
 };
 
 Restaurants.find({})
@@ -64,6 +65,7 @@ Restaurants.find({})
           for (var l = 0; l < dayAvailability[k].length; l++) {
             if (dayAvailability[k][l] === 1) {
               var reservationTime = {
+                _id: new mongoose.Types.ObjectId(),
                 restaurant: restList[i]._id,
                 date: resDate,
                 time: timeKey[l],
@@ -76,5 +78,5 @@ Restaurants.find({})
       }
     }
     Reservations.insertMany(collectDocs)
-      .then(() => db.disconnect());
+      .then(() => db.close());
   });
