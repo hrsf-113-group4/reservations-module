@@ -3,12 +3,13 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const reserveSchema = new mongoose.Schema({
+  _id: mongoose.Schema.Types.ObjectId,
   restaurant: {
-    $ref: 'restaurants',
-    $id: 
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Restaurant'
   },
   date: Date,
-  time: Date,
+  time: String,
   chairs: Number,
   reserved: {type: Boolean, default: false}
 });
