@@ -10,7 +10,10 @@
   "scripts": {
     "rest:setup": "node database/seedRestaurant.js",
     "reserve:setup": "node database/seedReserve.js",
-    "server": "nodemon server/server.js"
+    "seedBase": "npm run rest:setup && npm run reserve:setup",
+    "start": "nodemon server/server.js",
+    "watchwebpack": "webpack -d --watch",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -18,10 +21,19 @@
     "mongoose": "^5.4.20",
     "nodemon": "^1.18.10",
     "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "react-dom": "^16.8.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "faker": "^4.1.0"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "enzyme": "^3.9.0",
+    "eslint-config-hackreactor": "git://github.com/airbnb/javascript",
+    "faker": "^4.1.0",
+    "jest": "^24.5.0"
   }
 }
