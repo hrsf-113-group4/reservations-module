@@ -20,6 +20,5 @@ app.get('/date/:date', (req, res) => {
     .catch(err => console.error(err))
     .then((reservations) => {
       res.send(reservations);
-      res.end();
     });
 });
