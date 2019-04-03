@@ -144,6 +144,7 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/',
     '/__tests__/setupTests.js',
+    '/__tests__/serverTests/server.test.js',
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files

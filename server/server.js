@@ -22,3 +22,5 @@ app.get('/date/:date', (req, res) => {
       res.send(reservations);
     });
 });
+
+export default app;

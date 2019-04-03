@@ -13,11 +13,14 @@
     "seedBase": "npm run rest:setup && npm run reserve:setup",
     "start": "nodemon server/server.js",
     "watchwebpack": "webpack -d --watch",
-    "test": "jest --verbose --coverage"
+    "test": "jest --verbose",
+    "testCoverage": "jest --verbose --coverage"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "moment": "^2.24.0",
     "mongoose": "^5.4.20",
     "nodemon": "^1.18.10",
     "react": "^16.8.5",
