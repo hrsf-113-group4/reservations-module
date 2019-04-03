@@ -1,2 +1,7 @@
 node_modules/
 FEC.code-workspace
+jest.config.js
+babel.config.js
+eslintrc.js
+.circleci
+package-lock.json

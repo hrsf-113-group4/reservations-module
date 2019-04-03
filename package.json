@@ -13,7 +13,7 @@
     "seedBase": "npm run rest:setup && npm run reserve:setup",
     "start": "nodemon server/server.js",
     "watchwebpack": "webpack -d --watch",
-    "test": "jest"
+    "test": "jest --verbose --coverage"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -30,9 +30,15 @@
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.6.0",
     "babel-loader": "^8.0.5",
     "enzyme": "^3.9.0",
-    "eslint-config-hackreactor": "git://github.com/airbnb/javascript",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "faker": "^4.1.0",
     "jest": "^24.5.0"
   }
