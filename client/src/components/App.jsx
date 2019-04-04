@@ -14,9 +14,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h2 className='title'>Make a reservation</h2>
         <div className='party'><PartySize /></div>
         <div className='reservation-date'></div>
-        <div className='reservation-time'></div>
+        <div className='reservation-time'><ReservationTime /></div>
         <div className='find-a-table'></div>
         <div className='reservation-info'></div>
       </div>

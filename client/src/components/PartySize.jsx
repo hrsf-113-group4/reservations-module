@@ -25,10 +25,6 @@ const PartySize = (props) => (
       <option value='19'>19</option>
       <option value='20'>20</option>
     </select>
-    {/* Create drop down
-    drop down has 1-20 option
-    selection will send state back to App
-    */}
   </div>
 )
 
