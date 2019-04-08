@@ -3,7 +3,7 @@ import React from 'react';
 const PartySize = (props) => (
   <div className='party dropdown'>
   <label htmlFor='party-size'>Party Size</label>
-    <select id='party-size'>
+    <select id='party-size' defaultValue='2'>
       <option value='1'>1</option>
       <option value='2'>2</option>
       <option value='3'>3</option>
