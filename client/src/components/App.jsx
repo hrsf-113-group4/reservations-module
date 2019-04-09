@@ -72,14 +72,13 @@ class App extends React.Component {
     var url = '/date/' + this.state.date.format('YYYY-MM-DD') + 'T07:00:00Z/' + this.state.restaurantId + '/' + this.state.party;
     axios.get(url, {})
     .then( (response) => {
-      console.log(response.data);
       this.setState({
         buttons: 'times',
         reservations: response.data
       })
     })
     .catch( (error) => {
-      console.log(error);
+      console.error(error);
     })
   }
 
