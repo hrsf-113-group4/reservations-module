@@ -9,7 +9,7 @@ module.exports = {
         '@babel/preset-env',
         '@babel/preset-react',
       ],
-      plugins: [],
+      plugins: ['babel-plugin-styled-components'],
     },
   },
 };

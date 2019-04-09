@@ -1,5 +1,20 @@
 import React from 'react';
 import moment from 'moment';
+import styled from 'styled-components';
+
+const Dropdown = styled.select`
+  cursor: pointer;
+  position: relative;
+  font-family: inherit;
+  background-color: #ffffff;
+  font-size: .875rem;
+  display: block;
+  width: 100%;
+  height: 35px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d8d9db;
+  outline: none;
+`;
 
 const ReservationTime = ({time}) => {
   const remainder = 30 - (time.minute() % 30);
@@ -8,7 +23,7 @@ const ReservationTime = ({time}) => {
   return (
     <div className='time dropdown'>
     <label htmlFor='reserve-time'>Time</label>
-      <select id='reserve-time' defaultValue={dateTime}>
+      <Dropdown defaultValue={dateTime}>
         <option value='12:00 am'>12:00 am</option>
         <option value='12:30 am'>12:30 am</option>
         <option value='1:00 am'>1:00 am</option>
@@ -57,7 +72,7 @@ const ReservationTime = ({time}) => {
         <option value='10:30 pm'>10:30 pm</option>
         <option value='11:00 pm'>11:00 pm</option>
         <option value='11:30 pm'>11:30 pm</option>
-      </select>
+      </Dropdown>
     </div>
   )
 }

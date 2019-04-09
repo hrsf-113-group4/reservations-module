@@ -1,9 +1,32 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Dropdown = styled.select`
+  cursor: pointer;
+  position: relative;
+  font-family: inherit;
+  background-color: #ffffff;
+  font-size: .875rem;
+  display: block;
+  width: 100%;
+  height: 35px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d8d9db;
+  outline: none;
+`;
+
+const Label = styled.label`
+font-size: .875rem;
+font-weight: 500;
+padding-bottom: .25rem;
+display: block;
+`;
+
 
 const PartySize = (props) => (
-  <div className='party dropdown'>
-  <label htmlFor='party-size'>Party Size</label>
-    <select id='party-size' defaultValue='2'>
+  <div>
+    <Label>Party Size</Label>
+    <Dropdown defaultValue='2'>
       <option value='1'>1</option>
       <option value='2'>2</option>
       <option value='3'>3</option>
@@ -24,7 +47,7 @@ const PartySize = (props) => (
       <option value='18'>18</option>
       <option value='19'>19</option>
       <option value='20'>20</option>
-    </select>
+    </Dropdown>
   </div>
 )
 
