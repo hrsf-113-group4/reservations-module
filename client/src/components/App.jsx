@@ -70,14 +70,7 @@ class App extends React.Component {
 
   getReservations() {
     var url = '/date/' + this.state.date.format('YYYY-MM-DD') + 'T07:00:00Z/' + this.state.restaurantId + '/' + this.state.party;
-    axios.get(url, {
-      // params: {
-      //   date: this.state.date.format('YYYY-MM-DD') + 'T07:00:00Z',
-      //   // restaurantId: this.state.restaurantId,
-      //   // chairs: this.state.party,
-      //   // time: this.state.time,
-      // }
-    })
+    axios.get(url, {})
     .then( (response) => {
       console.log(response.data);
       this.setState({
