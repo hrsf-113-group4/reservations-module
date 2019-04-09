@@ -15,9 +15,9 @@ border: none;
 width: 18rem;
 `;
 
-const FindReservation = (props) => (
+const FindReservation = ({getReservations}) => (
   <div className='reserve button'>
-    <Button>Find a Table</Button>
+    <Button onClick={getReservations}>Find a Table</Button>
   </div>
 )
 

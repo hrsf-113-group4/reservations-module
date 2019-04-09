@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import styled from 'styled-components';
+import axios from 'axios';
 import PartySize from './PartySize.jsx'
 import FindReservation from './FindReservation.jsx';
 import ReservationOption from './ReservationOption.jsx';
@@ -42,14 +43,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      restaurantId: 'w3ze0',
       date: moment(),
       time: moment(),
       party: 2,
       buttons: 'reservation',
       displayCalendar: false,
+      reservations: [],
     }
     this.firstDayOfTheMonth = this.firstDayOfTheMonth.bind(this);
     this.handleCalendar = this.handleCalendar.bind(this);
+    this.getReservations = this.getReservations.bind(this);
   }
 
   handleCalendar() {
@@ -64,13 +68,29 @@ class App extends React.Component {
     return firstDay;
   }
 
+  getReservations() {
+    var url = '/date/' + this.state.date.format('YYYY-MM-DD') + 'T07:00:00Z/' + this.state.restaurantId + '/' + this.state.party;
+    axios.get(url, {})
+    .then( (response) => {
+      this.setState({
+        buttons: 'times',
+        reservations: response.data
+      })
+    })
+    .catch( (error) => {
+      console.error(error);
+    })
+  }
+
   renderButtons() {
     const {buttons} = this.state;
     if (buttons === 'reservation') {
-      return <FindReservation />
+      return <FindReservation getReservations={this.getReservations} />
     } else if (buttons === 'times') {
-      return <ReservationOption />
-    } 
+      this.state.reservations.map( (availableTime, i) => {
+        return <ReservationOption value={availableTime.time} key={i}/>
+      })
+    }
   }
 
   render() {

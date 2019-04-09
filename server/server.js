@@ -7,20 +7,21 @@ const port = 3003;
 
 const Reserves = require('../database/Reserve.js');
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use((req, res) => {
+  res.setHeader('Access-Control-Allow-Methods', 'GET');
+});
 
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
 });
 
-app.get('/date/:date', (req, res) => {
-  Reserves.find({ date: req.params.date }).populate('restaurant')
-    .catch(err => console.error(err))
+app.get('/date/:date/:restaurantId/:party', (req, res) => {
+  Reserves.find({ restaurantId: req.params.restaurantId, date: req.params.date, chairs: req.params.party }).populate('restaurant', 'restaurantId')
+    .catch(err => res.send(err))
     .then((reservations) => {
       res.send(reservations);
     });
 });
-
-export default app;

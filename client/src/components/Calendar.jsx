@@ -100,7 +100,7 @@ const Calendar = ({firstDay, date}) => {
     let previousMonth = [];
     for (var i = 0; i < firstDay(); i++) {
       previousMonth.unshift(
-        <TableCell className='weekday last-month'>{moment(date).startOf('month').subtract(i + 1, 'days').format('D')}</TableCell>
+        <TableCell className='last-month'>{moment(date).startOf('month').subtract(i + 1, 'days').format('D')}</TableCell>
       );
     };
 
@@ -117,7 +117,7 @@ const Calendar = ({firstDay, date}) => {
     let nextMonth = [];
     for (var k = 1; k < moment(date).add(1, 'months').startOf('month').endOf('week').format('d') - 1; k++) {
       nextMonth.push(
-        <TableCell className='weekday next-month'>
+        <TableCell className='next-month'>
           {k}
         </TableCell>
       )
