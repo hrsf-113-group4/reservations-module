@@ -17,9 +17,9 @@ const Buttons = styled.button`
   padding: 0 .25rem;
 `;
 
-const ReservationOption = (props) => (
+const ReservationOption = ({value}) => (
   <div className='time button'>
-    <Buttons id={this.props.value}>{this.props.value}</Buttons>
+    <Buttons id={value}>{value}</Buttons>
   </div>
 )
 
