@@ -4,7 +4,7 @@ const db = require('./index.js');
 const Restaurant = require('./Restaurant.js');
 
 let name = faker.commerce.productName;
-let restId = faker.random.alphaNumeric;
+let restId = faker.random.number;
 let open = faker.random.number;
 let closed = faker.random.number;
 
