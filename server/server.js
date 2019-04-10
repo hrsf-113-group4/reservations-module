@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = 3003;
+const port = 3002;
 
 const Reserves = require('../database/Reserve.js');
 
