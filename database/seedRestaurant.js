@@ -10,11 +10,11 @@ let closed = faker.random.number;
 
 const buildRestaurantDocs = () => {
   var collectDocs = [];
-  for (var i = 0; i < 100; i++) {
+  for (var i = 100; i < 200; i++) {
     var fakeDoc = {
       _id: new mongoose.Types.ObjectId(),
       name: name(),
-      restaurantId: restId(),
+      restaurantId: i,
       open: open({min: 8, max: 11}) + ':00 am',
       close: closed({min: 3, max: 11}) + ':00 pm'
     }
