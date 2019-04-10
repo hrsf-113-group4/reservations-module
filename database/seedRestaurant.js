@@ -14,7 +14,7 @@ const buildRestaurantDocs = () => {
     var fakeDoc = {
       _id: new mongoose.Types.ObjectId(),
       name: name(),
-      restaurantId: restId(5),
+      restaurantId: restId(),
       open: open({min: 8, max: 11}) + ':00 am',
       close: closed({min: 3, max: 11}) + ':00 pm'
     }
