@@ -10,9 +10,6 @@ const Reserves = require('../database/Reserve.js');
 app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use((req, res) => {
-  res.setHeader('Access-Control-Allow-Methods', 'GET');
-});
 
 app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
