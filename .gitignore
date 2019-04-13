@@ -5,3 +5,5 @@ babel.config.js
 eslintrc.js
 .circleci
 package-lock.json
+.dockerignore
+Dockerfile

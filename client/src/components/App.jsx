@@ -6,7 +6,7 @@ import PartySize from './PartySize.jsx'
 import FindReservation from './FindReservation.jsx';
 import ReservationOption from './ReservationOption.jsx';
 import ReservationTime from './ReservationTime.jsx';
-import DatePicker from './DatePicker.jsx';
+import DatePicker from './Datepicker.jsx';
 
 const Wrapper = styled.div`
   display: block;

@@ -15,12 +15,8 @@ app.listen(port, () => {
   console.log(`Listening on port: ${port}`);
 });
 
-app.get('/', (req, res) => {
-  res.send('hello');
-});
-
-app.get('/date/:date/:restaurantId/:party', (req, res) => {
-  Reserves.find({ restaurantId: req.params.restaurantId, date: req.params.date, chairs: req.params.party }).populate('restaurant', 'restaurantId')
+app.get('/resaturants/:id/:date/:party', (req, res) => {
+  Reserves.find({ restaurantId: req.params.id, date: req.params.date, chairs: req.params.party }).populate('restaurant', 'restaurantId')
     .catch(err => res.send(err))
     .then((reservations) => {
       res.send(reservations);

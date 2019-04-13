@@ -1,33 +1,32 @@
-const faker = require('faker');
+const mongoose = require('mongoose');
 const db = require('./index.js');
 const Restaurants = require('./Restaurant.js');
 const Reservations = require('./Reserve.js');
-const mongoose = require('mongoose');
 
-var reserveMatrix = function() {    
-  var times = 20;
-  var seats = 20;
-  var resTable = [];
-  var count = 0;
-  for (var i = 0; i < seats; i++) {
-      var seatCount = 0;
-      resTable.push([]);
-      for (var j = 0; j < times; j++) {
-        if (count < 40 && seatCount < 2) {
-          resTable[i].push(Math.floor(Math.random() * 2));
-          if (resTable[i][j] === 1) {
-              count++;
-              seatCount++;
-          } 
-        } else {
-            resTable[i].push(0);
-        }
+const reserveMatrix = () => {
+  const times = 20;
+  const seats = 20;
+  const resTable = [];
+  let count = 0;
+  for (let i = 0; i < seats; i++) {
+    let seatCount = 0;
+    resTable.push([]);
+    for (let j = 0; j < times; j++) {
+      if (count < 40 && seatCount < 2) {
+        resTable[i].push(Math.floor(Math.random() * 2));
+        if (resTable[i][j] === 1) {
+          count++;
+          seatCount++;
+        } 
+      } else {
+        resTable[i].push(0);
       }
+    }
   }
-return resTable;
+  return resTable;
 };
 
-var timeKey = { 
+const timeKey = {
   0: '2:00 pm',
   1: '2:15 pm',
   2: '2:30 pm',
@@ -47,7 +46,7 @@ var timeKey = {
   16: '6:15 pm',
   17: '6:30 pm',
   18: '6:45 pm',
-  19: '7:00 pm'
+  19: '7:00 pm',
 };
 
 Restaurants.find({})
@@ -55,22 +54,22 @@ Restaurants.find({})
     console.error(err);
   })
   .then((restList) => {
-    var collectDocs = [];
-    for (var i = 0; i < restList.length; i++) {
-      for (var j = 0; j < 31; j++) {
-        var resDate = new Date(2019, 3, 1 + j);
-        var dayAvailability = reserveMatrix();
-        for (var k = 0; k < dayAvailability.length; k++) {
-          var seats = k;
-          for (var l = 0; l < dayAvailability[k].length; l++) {
+    const collectDocs = [];
+    for (let i = 0; i < restList.length; i++) {
+      for (let j = 0; j < 31; j++) {
+        let resDate = new Date(2019, 3, 1 + j);
+        let dayAvailability = reserveMatrix();
+        for (let k = 0; k < dayAvailability.length; k++) {
+          let seats = k;
+          for (let l = 0; l < dayAvailability[k].length; l++) {
             if (dayAvailability[k][l] === 1) {
-              var reservationTime = {
+              let reservationTime = {
                 _id: new mongoose.Types.ObjectId(),
                 restaurant: restList[i]._id,
                 date: resDate,
                 time: timeKey[l],
-                chairs: seats
-              }
+                chairs: seats,
+              };
               collectDocs.push(reservationTime);
             }
           }
@@ -78,5 +77,5 @@ Restaurants.find({})
       }
     }
     Reservations.insertMany(collectDocs)
-      .then(() => db.close());
+      .then(() => mongoose.connection.close());
   });
