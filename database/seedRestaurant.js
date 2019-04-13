@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
-const db = require('./index.js');
 const Restaurant = require('./Restaurant.js');
 
 const name = faker.commerce.productName;

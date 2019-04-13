@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const db = require('./index.js');
 const Restaurants = require('./Restaurant.js');
 const Reservations = require('./Reserve.js');
 
