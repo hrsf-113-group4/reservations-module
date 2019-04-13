@@ -11,8 +11,9 @@
     "rest:setup": "node database/seedRestaurant.js",
     "reserve:setup": "node database/seedReserve.js",
     "seedBase": "npm run rest:setup && npm run reserve:setup",
-    "start": "nodemon server/server.js",
-    "watchwebpack": "webpack -d --watch",
+    "start": "node server/server.js",
+    "build:dev": "webpack -d --watch",
+    "build:prod": "webpack -p",
     "test": "jest --verbose",
     "testCoverage": "jest --verbose --coverage"
   },
