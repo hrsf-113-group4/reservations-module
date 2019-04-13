@@ -7,3 +7,4 @@ eslintrc.js
 package-lock.json
 .dockerignore
 Dockerfile
+FEC.pem
