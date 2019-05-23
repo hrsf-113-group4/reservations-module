@@ -1,6 +1,6 @@
-# Project Name
+# Available Table
 
-> Project description
+> Reservation and calendar module for a table reservation application
 
 ## Related Projects
 
@@ -23,8 +23,8 @@
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
-- Node 6.13.0
-- etc
+- Node 8.15.1
+- MongoDB
 
 ## Development
 
